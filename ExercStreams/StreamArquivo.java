@@ -27,22 +27,27 @@ public class StreamArquivo {
         Path path = Paths.get("CLIENTES.TXT");
         try (BufferedReader br = Files.newBufferedReader(path, Charset.defaultCharset())) {
             String linha = null;
+            boolean resultado = false;
             while ((linha = br.readLine()) != null) {
                 // separador: :
                 Scanner sc = new Scanner(linha).useDelimiter(":");
                 if( linha.contains(codigo)){
                     System.out.println(sc.next()+" - "+sc.next());
+                    resultado=true;
                     break;
                 }
-                else{
-                    System.out.println("Código de cliente inválido");
-                }
+
+
+            }
+          if(resultado == false){
+                System.out.println("Código de cliente inválido");
             }
         }
         catch (IOException e) {
             System.err.format("Erro de E/S: %s%n", e);
         }
     }
+
     public void cosultaVenda(String codigo){
         Path path = Paths.get("VENDAS.TXT");
         try (BufferedReader br = Files.newBufferedReader(path, Charset.defaultCharset())) {
