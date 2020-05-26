@@ -47,7 +47,7 @@ public class Main {
                     break;
 
                 case 5:
-                    System.out.println("Saindo do programa, obrigado e volte sempre, não deixe de lavar as mãos  ;)");
+                    System.out.println("Saindo do programa, obrigado e volte sempre. Não deixe de lavar as mãos e boa quarentena ;)");
                     break;
 
                 default:
@@ -58,6 +58,7 @@ public class Main {
         }while(opcao !=5 || opcao == 0 );
 
     }
+
     public static void salvarVenda(){
         Scanner in = new Scanner(System.in);
         System.out.println("Digite o nome do cliente: ");
@@ -79,6 +80,7 @@ public class Main {
             System.out.println("Codigo do cliente esta invalido");
         }
     }
+
     public static void recuperarVenda(){
         try{
             SalvarArquivos.lerArquivo();
