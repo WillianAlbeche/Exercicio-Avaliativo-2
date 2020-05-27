@@ -4,10 +4,16 @@ public class Cliente implements Serializable {
         private String codigo;
         private String nome;
         private Venda venda;
-        public Cliente(String codigo, String nome, Venda venda){
+        private String listaVendas="Vendas desse cliente: ";
+
+        public Cliente(String codigo, String nome){
             this.nome= nome;
             this.codigo= codigo;
-            this.venda= venda;
+
+        }
+        public void insereVenda(int quantidadeDeCompras, double valorTotal,String codigoVenda){
+            venda = new Venda(quantidadeDeCompras,valorTotal,codigoVenda);
+            salvarVendas(venda);
         }
 
     public String getNome() {
@@ -18,9 +24,13 @@ public class Cliente implements Serializable {
         return codigo;
     }
 
+    public void salvarVendas(Venda venda){
+
+            listaVendas+=  venda.toString();
+    }
     @Override
     public String toString() {
-        return "Cliente:"+"\nNome: "+getNome()+"\nCodigo: "+getCodigo()+"\n"+venda.toString();
+        return "Cliente:"+"\nNome: "+getNome()+"\nCodigo: "+getCodigo()+"\n"+"\n============================"+"\n"+listaVendas;
 
     }
 }

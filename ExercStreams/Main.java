@@ -65,18 +65,31 @@ public class Main {
  */
     public static void salvarVenda(){
         Scanner in = new Scanner(System.in);
+        Venda venda1;
+        Cliente cliente;
         System.out.println("Digite o nome do cliente: ");
         String nomeCli= in.nextLine();
         System.out.println("Digite o codigo do cliente: ");
         String codigoCli= in.nextLine();
+        cliente= new Cliente(codigoCli,nomeCli);
 
-        System.out.println("Digite a quantidade de itens que foram comprados: ");
-        int quantidadeComprada = in.nextInt();
-        System.out.println("Digite o preço de cada compra");
-        double preco = in.nextDouble();
+        int opcao= 0;
+        do{
 
-        Venda venda1 = new Venda(quantidadeComprada,preco);
-        Cliente cliente= new Cliente(codigoCli,nomeCli,venda1);
+
+            System.out.println("Digite a quantidade de itens que foram comprados: ");
+            int quantidadeComprada = in.nextInt();
+            System.out.println("Digite o preço de cada compra");
+            double preco = in.nextDouble();
+            System.out.println("Digite o codigo da venda: ");
+            String codigoVenda;
+            codigoVenda=in.nextLine();
+            codigoVenda=in.nextLine();
+           //venda1= new Venda(quantidadeComprada,preco,codigoVenda);
+            cliente.insereVenda(quantidadeComprada,preco,codigoVenda);
+            System.out.println("Digite 1 para iniciar uma nova venda ou 0 para finalizar: ");
+            opcao = in.nextInt();
+        }while (opcao != 0);
         if(SalvarArquivos.gravarArquivos(cliente)){
             System.out.println("O resumo da sua venda foi salvo");
         }
