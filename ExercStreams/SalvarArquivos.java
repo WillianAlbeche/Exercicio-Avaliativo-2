@@ -21,6 +21,7 @@ public class SalvarArquivos {
         }
         return concluido;
     }
+    //utilizando a serialização para ler o objeto do arquivo
     public static void lerArquivo(){
         Cliente cliente = null;
        Path arq1 = Paths.get("Resumo.bin");

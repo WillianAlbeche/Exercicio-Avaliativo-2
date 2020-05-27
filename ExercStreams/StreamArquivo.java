@@ -23,6 +23,11 @@ public class StreamArquivo {
         		System.err.format("Erro de E/S: %s%n", e);
         } 
     }
+
+    /* Descrição
+     * procura o codigo do cliente na lista de clientes, se não existir avisa que não foi encontrado
+     * @Param codigo - recebe um codigo de um cliente
+     */
     public void confereOcliente(String codigo){
         Path path = Paths.get("CLIENTES.TXT");
         try (BufferedReader br = Files.newBufferedReader(path, Charset.defaultCharset())) {
@@ -48,6 +53,10 @@ public class StreamArquivo {
         }
     }
 
+    /* Descrição
+     * procura as vendas relacionadas a um codigo de um cliente especifico, se não achar ele avisa que o codigo esta invalido
+     * @Param codigo - recebe um codigo de cliente
+     */
     public void cosultaVenda(String codigo){
         Path path = Paths.get("VENDAS.TXT");
         try (BufferedReader br = Files.newBufferedReader(path, Charset.defaultCharset())) {

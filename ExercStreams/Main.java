@@ -1,4 +1,6 @@
-
+/*
+ * E2- POO by Willian Magnum Albeche
+ */
 import java.util.Scanner;
 
 public class Main {
@@ -58,7 +60,9 @@ public class Main {
         }while(opcao !=5 || opcao == 0 );
 
     }
-
+/*
+ *Metodo feito para intanciar um objeto cliente e venda e salvar esses objetos
+ */
     public static void salvarVenda(){
         Scanner in = new Scanner(System.in);
         System.out.println("Digite o nome do cliente: ");
@@ -80,7 +84,9 @@ public class Main {
             System.out.println("Codigo do cliente esta invalido");
         }
     }
-
+    /*
+     * Recupera os dados dos objetos criados anteriormentes
+     */
     public static void recuperarVenda(){
         try{
             SalvarArquivos.lerArquivo();
